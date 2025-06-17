@@ -8,13 +8,11 @@ class ListNode {
         this.next = null;
     }
      public static void main (String[] args) {
-        // Example: create a linked list with a cycle
         ListNode head = new ListNode(3);
         head.next = new ListNode(2);
         head.next.next = new ListNode(0);
         head.next.next.next = new ListNode(-4);
 
-        // Creating a cycle: connect last node to the second node
         head.next.next.next.next = head.next;
 
         System.out.println("Cycle detected: " + hasCycle(head));
@@ -26,11 +24,11 @@ class ListNode {
         ListNode fast = head;
 
         while (fast != null && fast.next != null) {
-            slow = slow.next;           // move slow by 1 step
-            fast = fast.next.next;      // move fast by 2 steps
+            slow = slow.next;          
+            fast = fast.next.next;     
 
             if (slow == fast) {
-                return true;            // cycle detected
+                return true;           
             }
         }
 
